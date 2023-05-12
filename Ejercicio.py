@@ -46,10 +46,10 @@ def mostrar_Paises():
     if request.method == 'POST':
         pais = request.form.get("Pais")
  # Obtener la Pais seleccionado por el usuario
-        if pais == "Mexico":
+        if pais == "México":
             Pais_ingresado = Mexico("México", "Ciudad de México", "Español")
         elif pais == "Japón":
-            Pais_ingresado = Japon("Japón", "Tokio", "Japonés")
+            Pais_ingresado = Japon("Japón", "Tokio", "Yen")
         elif pais == "España":
             Pais_ingresado = Espana("España", "Madrid", "Europa")
     # Insertar el código aquí

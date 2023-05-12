@@ -46,37 +46,16 @@ def mostrar_Paises():
     if request.method == 'POST':
         pais = request.form.get("Pais")
  # Obtener la Pais seleccionado por el usuario
-    if pais == "Mexico":
-        Pais_ingresado = {
-        'nombre': 'México',
-        'capital': 'Ciudad de México',
-        'idioma': 'Español',
-        'moneda': 'Peso mexicano',
-        'region': 'América',
-        'descripcion': Mexico("México", "Ciudad de México", "Español").descripcion(),
-    }
-    elif pais == "Japón":
-        Pais_ingresado = {
-        'nombre': 'Japón',
-        'capital': 'Tokio',
-        'idioma': 'Japonés',
-        'moneda': 'Yen',
-        'region': 'Asia',
-        'descripcion': Japon("Japón", "Tokio", "Japonés").descripcion(),
-    }
-    elif pais == "España":
-        Pais_ingresado = {
-        'nombre': 'España',
-        'capital': 'Madrid',
-        'idioma': 'Español',
-        'moneda': 'Euros',
-        'region': 'Europa',
-        'descripcion': Espana("España", "Madrid", "Europa").descripcion(),
-    }
- # Insertar el código aquí
-        
- # Renderizar la página de Paises con el Pais seleccionado
-    return render_template("Paises.html", Pais=Pais_ingresado)
+        if pais == "Mexico":
+            Pais_ingresado = Mexico("México", "Ciudad de México", "Español")
+        elif pais == "Japón":
+            Pais_ingresado = Japon("Japón", "Tokio", "Japonés")
+        elif pais == "España":
+            Pais_ingresado = Espana("España", "Madrid", "Europa")
+    # Insertar el código aquí
+            
+    # Renderizar la página de Paises con el Pais seleccionado
+        return render_template("Paises.html", Pais=Pais_ingresado)
 
 if __name__ == '__main__':
    app.run(debug=True)

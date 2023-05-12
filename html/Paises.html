@@ -1,0 +1,36 @@
+<!--Paises.html-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Información del Pais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+
+<body>
+    <fieldset>
+        <legend>Información de Paises</legend>
+        <div class="form-group row">
+            {% if Pais %}
+            <p><strong>Nombre:</strong> {{ Pais.nombre }}</p>
+            <p><strong>Capital:</strong> {{ Pais.capital }}</p>
+            {% if (Pais.nombre == "Mexico") %}
+            <p><strong>Idioma:</strong> {{ Pais.idioma }}</p>
+            {% elif (Pais.nombre == "Japón") %}
+            <p><strong>Mondeda:</strong> {{ Pais.moneda }}</p>
+            {% elif (Pais.nombre == "España") %}
+            <p><strong>Región:</strong> {{ Pais.region }}</p>
+            {% endif %}
+            <p><strong>Descripcion:</strong> {{ Pais.descripcion() }}</p>
+            {% else %}
+            <p>La Pais seleccionada no fue encontrada en la lista.</p>
+            {% endif %}
+            <form method="get" action="/">
+                <button type="submit" class="btn btn-primary">Mas Paises</button>
+            </form>
+        </div>
+    </fieldset>
+</body>
+</html>

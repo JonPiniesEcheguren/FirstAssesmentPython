@@ -1,0 +1,61 @@
+<!-- start_Paises.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Información de Paises</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+
+<body>
+<form method="post" action="/Paises">
+    <legend>Información de Paises</legend>
+    <fieldset  class="d-grid" >
+    <label for="Pais">Selecciona una País:</label>
+    <select id="Pais" name="Pais" class="col-form-label col-form-label-sm">
+        <option value="México">México</option>
+        <option value="Japón">Japón</option>
+        <option value="España">España</option>
+    </select>
+    <label for="capital" class="col-form-label col-form-label-sm">Capital:</label>
+    <input type="text" id="capital" name="capital" >
+    <div id="atributos">
+        <label for="idioma" class="col-form-label col-form-label-sm">Idioma:</label>
+        <input type="text" id="idioma" name="idioma" >      
+    </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Revisar</button>
+</form>
+
+<script>
+    const Paiseselect = document.getElementById("Pais");
+    const atributosDiv = document.getElementById("atributos");
+
+    function mostrarAtributos() {
+    const Pais = Paiseselect.value;
+    atributosDiv.innerHTML = "";
+
+    if (Pais === "México") {
+        atributosDiv.innerHTML += `
+        <label for="idioma" class="col-form-label col-form-label-sm">Idioma:</label>
+        <input type="text" id="idioma" name="idioma" > 
+        `;
+    } else if (Pais === "Japón") {
+        atributosDiv.innerHTML += `
+            <label for="moneda" class="col-form-label col-form-label-sm">Moneda:</label>
+            <input type="text" id="moneda" name="moneda">
+        `;
+    } else if (Pais === "España") {
+        atributosDiv.innerHTML += `
+            <label for="region" class="col-form-label col-form-label-sm">Región:</label>
+            <input type="text" id="region" name="region">
+        `;
+    }
+    }
+    Paiseselect.addEventListener("change", mostrarAtributos);
+</script>
+</body>
+
+</html>
